@@ -29,7 +29,7 @@
    run create_training_set_shtech.m in matlab to create training and validataion set along with ground truth files
 
 # Pre-trained model
-The best model we have trained is in the file 'trained model'
+The best model we have trained is in the file `ROOT`/trained model
 
 # Test
 1. Follow steps 1,2,3,4 and 5 from Data Setup
