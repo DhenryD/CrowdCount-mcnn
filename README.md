@@ -1,46 +1,45 @@
 # Image-based Crowd Stability Analysis Using Improved Multi-columns Convolutional Neural Network
 
 # Installation
-Install pytorch
-Clone this repository
-We'll call the directory that you cloned CrowdCount-mscnn ROOT
+1. Install pytorch
+2. Clone this repository
+  
+  We'll call the directory that you cloned CrowdCount-mcnn `ROOT`
 
-Data Setup
-Download ShanghaiTech Dataset from
 
-Baidu Disk: https://pan.baidu.com/s/1FUNQSuezzAQV4e8CDis1yA
+# Data Setup
+1. Download ShanghaiTech Dataset from  
+   
+   Baidu Disk: https://pan.baidu.com/s/1FUNQSuezzAQV4e8CDis1yA
+   
+   Extraction code： 7ous
+   
+2. Create Directory    `ROOT`/data/original/shanghaitech/  
+ 
+3. Save "part_A_final" under   `ROOT`/data/original/shanghaitech/
 
-Extraction code： 7ous
+4. Save "part_B_final" under   `ROOT`/data/original/shanghaitech/
 
-Create Directory ROOT/data/original/shanghaitech/
+5. cd `ROOT`/data_preparation/
+   
+   run create_gt_test_set_shtech.m in matlab to create ground truth files for test data
 
-Save "part_A_final" under ROOT/data/original/shanghaitech/
+6. cd `ROOT`/data_preparation/
+   
+   run create_training_set_shtech.m in matlab to create training and validataion set along with ground truth files
 
-Save "part_B_final" under ROOT/data/original/shanghaitech/
+# Pre-trained model
+The best model we have trained is in the file 'trained model'
 
-cd ROOT/data_preparation/
+# Test
+1. Follow steps 1,2,3,4 and 5 from Data Setup
+ 
+2. Run test.py
 
-run create_gt_test_set_shtech.m in matlab to create ground truth files for test data
+	a. Set save_output = True to save output density maps
+	
+	b. Errors are saved in  output directory
 
-cd ROOT/data_preparation/
-
-run create_training_set_shtech.m in matlab to create training and validataion set along with ground truth files
-
-Test
-Follow steps 1,2,3,4 and 5 from Data Setup
-
-Download pre-trained model files(The best model we have trained):
-
-[pre-trained model] Extraction code：ew22
-
-Save the model files under ROOT/final_models
-
-Run test.py
-
-a. Set save_output = True to save output density maps
-
-b. Errors are saved in output directory
-
-Training
-Follow steps 1,2,3,4 and 6 from Data Setup
-Run train.py
+# Training
+1. Follow steps 1,2,3,4 and 6 from Data Setup
+2. Run train.py
