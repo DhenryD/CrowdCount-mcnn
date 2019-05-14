@@ -1,75 +1,46 @@
-# Single Image Crowd Counting via Multi Column Convolutional Neural Network
-
-This is an unofficial implementation of CVPR 2016 paper ["Single Image Crowd Counting via Multi Column Convolutional Neural Network"](http://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Zhang_Single-Image_Crowd_Counting_CVPR_2016_paper.pdf)
+# Image-based Crowd Stability Analysis Using Improved Multi-columns Convolutional Neural Network
 
 # Installation
-1. Install pytorch
-2. Clone this repository
-  ```Shell
-  git clone https://github.com/svishwa/crowdcount-mcnn.git
-  ```
-  We'll call the directory that you cloned crowdcount-mcnn `ROOT`
+Install pytorch
+Clone this repository
+We'll call the directory that you cloned CrowdCount-mscnn ROOT
 
+Data Setup
+Download ShanghaiTech Dataset from
 
-# Data Setup
-1. Download ShanghaiTech Dataset from   
-   Dropbox:   https://www.dropbox.com/s/fipgjqxl7uj8hd5/ShanghaiTech.zip?dl=0
-   
-   Baidu Disk: http://pan.baidu.com/s/1nuAYslz
-2. Create Directory 
-  ```Shell
-  mkdir ROOT/data/original/shanghaitech/  
-  ```
-3. Save "part_A_final" under ROOT/data/original/shanghaitech/
-4. Save "part_B_final" under ROOT/data/original/shanghaitech/
-5. cd ROOT/data_preparation/
+Baidu Disk: https://pan.baidu.com/s/1FUNQSuezzAQV4e8CDis1yA
 
-   run create_gt_test_set_shtech.m in matlab to create ground truth files for test data
-6. cd ROOT/data_preparation/
+Extraction code： 7ous
 
-   run create_training_set_shtech.m in matlab to create training and validataion set along with ground truth files
+Create Directory ROOT/data/original/shanghaitech/
 
-# Test
-1. Follow steps 1,2,3,4 and 5 from Data Setup
-2. Download pre-trained model files:
+Save "part_A_final" under ROOT/data/original/shanghaitech/
 
-   [[Shanghai Tech A](https://www.dropbox.com/s/8bxwvr4cj4bh5d8/mcnn_shtechA_660.h5?dl=0)]
-   
-   [[Shanghai Tech B](https://www.dropbox.com/s/kqqkl0exfshsw8v/mcnn_shtechB_110.h5?dl=0)]
-   
-   Save the model files under ROOT/final_models
-   
-3. Run test.py
+Save "part_B_final" under ROOT/data/original/shanghaitech/
 
-	a. Set save_output = True to save output density maps
-	
-	b. Errors are saved in  output directory
+cd ROOT/data_preparation/
 
-# Training
-1. Follow steps 1,2,3,4 and 6 from Data Setup
-2. Run train.py
+run create_gt_test_set_shtech.m in matlab to create ground truth files for test data
 
+cd ROOT/data_preparation/
 
-# Training with TensorBoard
-With the aid of [Crayon](https://github.com/torrvision/crayon),
-we can access the visualisation power of TensorBoard for any 
-deep learning framework.
+run create_training_set_shtech.m in matlab to create training and validataion set along with ground truth files
 
-To use the TensorBoard, install Crayon (https://github.com/torrvision/crayon)
-and set `use_tensorboard = True` in `ROOT/train.py`.
+Test
+Follow steps 1,2,3,4 and 5 from Data Setup
 
-# Other notes
-1. During training, the best model is chosen using error on the validation set. (It is not clear how the authors in the original implementation choose the best model).
-2. 10% of the training set is set asised for validation. The validation set is chosen randomly.
-3. The ground truth density maps are obtained using simple gaussian maps unlike the original method described in the paper.
-4. Following are the results on  Shanghai Tech A and B dataset:
-		
-                |     |  MAE  |   MSE  |
-                ------------------------
-                | A   |  110  |   169  |
-                ------------------------
-                | B   |   25  |    44  |
-		
-5. Also, please take a look at our new work on crowd counting using cascaded cnn and high-level prior (https://github.com/svishwa/crowdcount-cascaded-mtl),  which has improved results as compared to this work. 
-               
+Download pre-trained model files(The best model we have trained):
 
+[pre-trained model] Extraction code：ew22
+
+Save the model files under ROOT/final_models
+
+Run test.py
+
+a. Set save_output = True to save output density maps
+
+b. Errors are saved in output directory
+
+Training
+Follow steps 1,2,3,4 and 6 from Data Setup
+Run train.py
